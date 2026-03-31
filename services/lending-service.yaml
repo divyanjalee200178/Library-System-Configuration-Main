@@ -1,0 +1,27 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: lending-server
+
+  data:
+    mongodb:
+      connection-string: mongodb://admin:admin123@localhost:27017/lendingdb?authSource=admin
+
+  config:
+    import: "optional:configserver:"
+
+  cloud:
+    config:
+      uri: http://localhost:9000
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9001/eureka
+
+  instance:
+    prefer-ip-address: true
